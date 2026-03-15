@@ -1,5 +1,6 @@
 import random
 import streamlit as st
+# FIX: Refactored core game logic into logic_utils.py with Copilot Agent mode.
 from logic_utils import (
     check_guess,
     get_range_for_difficulty,
@@ -49,6 +50,7 @@ if "history" not in st.session_state:
 
 st.subheader("Make a guess")
 
+# FIX: Use difficulty-aware range in UI so hints match active game settings.
 st.info(
     f"Guess a number between {low} and {high}. "
     f"Attempts left: {attempt_limit - st.session_state.attempts}"
@@ -76,7 +78,9 @@ with col3:
 
 if new_game:
     st.session_state.attempts = 0
+    # FIX: Keep new-game secret aligned with selected difficulty range.
     st.session_state.secret = random.randint(low, high)
+    # FIX: Reset state cleanly so replay behavior is consistent.
     st.session_state.status = "playing"
     st.session_state.history = []
     st.success("New game started.")
@@ -100,6 +104,7 @@ if submit:
     else:
         st.session_state.history.append(guess_int)
 
+        # FIX: Use shared logic utility to avoid the prior inverted high/low hints.
         outcome, message = check_guess(
             guess_int,
             st.session_state.secret,

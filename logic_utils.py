@@ -1,5 +1,6 @@
 def get_range_for_difficulty(difficulty: str):
     """Return (low, high) inclusive range for a given difficulty."""
+    # FIX: Extracted difficulty range logic from app.py with Copilot Agent mode.
     if difficulty == "Easy":
         return 1, 20
     if difficulty == "Normal":
@@ -15,6 +16,7 @@ def parse_guess(raw: str):
 
     Returns: (ok: bool, guess_int: int | None, error_message: str | None)
     """
+    # FIX: Centralized input parsing so validation is consistent across UI reruns.
     if raw is None:
         return False, None, "Enter a guess."
 
@@ -39,6 +41,7 @@ def check_guess(guess, secret, with_message: bool = False):
 
     outcome examples: "Win", "Too High", "Too Low".
     """
+    # FIX: Corrected inverted guess comparison from the original app logic.
     if guess == secret:
         outcome = "Win"
     elif guess > secret:
@@ -49,6 +52,7 @@ def check_guess(guess, secret, with_message: bool = False):
     if not with_message:
         return outcome
 
+    # FIX: Keep UI hints in one mapping while preserving test-friendly return values.
     message_map = {
         "Win": "🎉 Correct!",
         "Too High": "📉 Go LOWER!",
@@ -59,6 +63,7 @@ def check_guess(guess, secret, with_message: bool = False):
 
 def update_score(current_score: int, outcome: str, attempt_number: int):
     """Update score based on outcome and attempt number."""
+    # FIX: Moved scoring rules out of app.py so game balance logic is isolated/testable.
     if outcome == "Win":
         points = 100 - 10 * (attempt_number + 1)
         if points < 10:
