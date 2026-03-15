@@ -11,7 +11,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 # Phase 1, Step 1: 
 - Secret was 94, when I inputted 1, the hint showed "Go lower" -> bug
 - Normal mode range 1-100, yet hard mode range was 1-50, smaller = easier -> bug
-
+- After clicking new game, I cannot play again -> bug
 ---
 
 ## 2. How did you use AI as a teammate?
