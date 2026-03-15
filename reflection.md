@@ -20,6 +20,16 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
 
+1. used GPT 5.3 Codex
+2. Suggested changing 
+```python
+if guess > secret:
+    return "Too High", "📉 Go LOWER!"
+else:
+    return "Too Low", "📈 Go HIGHER!"
+```
+which is correct (I just went into the file where the code was and yes, made sense)
+3. Honestly none, great model.
 ---
 
 ## 3. Debugging and testing your fixes
@@ -29,6 +39,9 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
   and what it showed you about your code.
 - Did AI help you design or understand any tests? How?
 
+1. By checking the file
+2. The test was well-done and passed
+3. Yes, by suggesting, generating, and checking
 ---
 
 ## 4. What did you learn about Streamlit and state?
