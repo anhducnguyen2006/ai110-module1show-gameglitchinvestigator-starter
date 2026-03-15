@@ -8,6 +8,10 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - List at least two concrete bugs you noticed at the start  
   (for example: "the secret number kept changing" or "the hints were backwards").
 
+# Phase 1, Step 1: 
+- Secret was 94, when I inputted 1, the hint showed "Go lower" -> bug
+- Normal mode range 1-100, yet hard mode range was 1-50, smaller = easier -> bug
+
 ---
 
 ## 2. How did you use AI as a teammate?
