@@ -25,13 +25,19 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
+- [ ] Describe the game's purpose. 
 - [ ] Detail which bugs you found.
 - [ ] Explain what fixes you applied.
+
+1. Guess the number
+2. hints, game mode
+2. Fixes in app.py and logic_utils.py, see details in those files
 
 ## 📸 Demo
 
 - [ ] [Insert a screenshot of your fixed, winning game here]
+
+<img src="Demo.png">
 
 ## 🚀 Stretch Features
 

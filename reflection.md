@@ -50,6 +50,12 @@ which is correct (I just went into the file where the code was and yes, made sen
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
 - What change did you make that finally gave the game a stable secret number?
 
+1. The secret number kept changing because Streamlit reruns the whole script every time I clicked a button or changed input. In the original version, that meant parts of state got re-initialized at the wrong time, so the game effectively “forgot” the old secret and behaved like a new round. From a player perspective, it felt like the app was cheating, because the target moved after each guess. The bug wasn’t random bad luck, it was state being reset during reruns.
+
+2. I’d explain Streamlit reruns like this: imagine your app is a function that gets executed from top to bottom on every interaction. Buttons, text inputs, checkboxes all trigger that rerun. st.session_state is the one place where you can store values that survive across those reruns, like memory between frames in a game. So reruns are normal behavior, and session state is how you keep things stable and intentional.
+
+3. The key fix was making sure the secret number is initialized only once and then reused from st.session_state. In practice, that means guarding initialization with if "secret" not in st.session_state: and only assigning a new secret when I explicitly start a new game. I also kept new-game resets deliberate (status/history/attempts), so state changes happen only when intended. That’s what made the secret finally stable and the game feel fair.
+
 ---
 
 ## 5. Looking ahead: your developer habits
@@ -58,3 +64,9 @@ which is correct (I just went into the file where the code was and yes, made sen
   - This could be a testing habit, a prompting strategy, or a way you used Git.
 - What is one thing you would do differently next time you work with AI on a coding task?
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+
+1. One habit I want to keep is writing a small regression test right after fixing a bug. It made me feel way more confident that the issue was actually solved and wouldn’t quietly come back later.
+
+2. Next time, I’d ask AI for a quick “why this works” explanation with each code suggestion, not just the fix itself. That would help me learn faster and catch edge cases earlier.
+
+3. This project changed how I see AI-generated code: it’s super helpful for speed, but I still need to verify behavior and test it like any other code. I trust it more as a teammate now, but not as autopilot.
